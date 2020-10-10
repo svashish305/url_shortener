@@ -17,7 +17,7 @@ function useFetch() {
         token["us-token"]
       ).catch((err) => setError(err));
       setLoggedInUser(loggedInUser);
-      const data = await API.getUrls(loggedInUser._id, token["us-token"]).catch((err) =>
+      const data = await API.getUrls(token["us-token"]).catch((err) =>
         setError(err)
       );
       setData(data);

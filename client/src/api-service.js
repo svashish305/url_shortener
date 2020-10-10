@@ -29,8 +29,8 @@ export class API {
     }).then((resp) => resp.json());
   }
 
-  static getDashboard(token) {
-    return fetch(`/api/dashboard/`, {
+  static getUrls(token) {
+    return fetch(`/api/urls/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -52,16 +52,6 @@ export class API {
 
   static redirectUrl(shortId, token) {
     return fetch(`/api/users/search/${shortId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }).then((resp) => resp.json());
-  }
-
-  static getUrls(user_id, token) {
-    return fetch(`/api/users/urls/${user_id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

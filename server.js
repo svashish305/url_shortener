@@ -12,7 +12,7 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use("/api/users", require("./models/User/users.controller"));
-app.use("/api/dashboard", require("./dashboard"));
+app.use("/api/urls", require("./models/URL/urls.controller"));
 
 app.use(errorHandler);
 
