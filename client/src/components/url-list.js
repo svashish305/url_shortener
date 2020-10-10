@@ -37,7 +37,7 @@ function UrlList(props) {
             return (
               <div key={url && url._id} className="url-item">
                 <h2 className="pointer-cursor" onClick={urlClicked(url)}>
-            ShortUrl: <a onClick={() => redirect(url.urlCode)}>Short Url</a>
+            ShortUrl: <a onClick={() => redirect(url.urlCode)}>{url.shortUrl}</a>
                 </h2>
                 <div>
                   <FontAwesomeIcon
