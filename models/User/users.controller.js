@@ -12,7 +12,7 @@ router.post("/revoke-token", authorize(), revokeTokenSchema, revokeToken);
 router.post("/register", registerSchema, register);
 router.get("/", authorize(), getAll);
 router.get("/loggedin", authorize(), getLoggedInUser);
-router.get('/urls', authorize(), getUrls);
+router.get('/urls/:id', authorize(), getUrls);
 router.get('/search/:code', authorize(), search);
 router.get("/:id", authorize(), getById);
 router.post("/", authorize(), createSchema, create);
@@ -196,7 +196,11 @@ function search(req, res, next) {
 }
 
 function getUrls(req, res, next) {
-  userService.myUrls(req.user.id)
+  if (req.params.id !== req.user.id) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  userService.myUrls(req.params.id)
   .then((urls) => res.json(urls))
   .catch(next);
 }

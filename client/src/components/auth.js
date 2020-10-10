@@ -7,15 +7,15 @@ function Auth() {
   const [password, setPassword] = useState("");
   const [isLoginView, setIsLoginView] = useState(true);
 
-  const [token, setToken] = useCookies(["jp-token"]);
+  const [token, setToken] = useCookies(["us-token"]);
 
   useEffect(() => {
-    if (token["jp-token"]) window.location.href = "/jobs";
+    if (token["us-token"]) window.location.href = "/urls";
   }, [token]);
 
   const loginClicked = () => {
     API.loginUser({ email, password })
-      .then((resp) => setToken("jp-token", resp.jwtToken))
+      .then((resp) => setToken("us-token", resp.jwtToken))
       .catch((error) => console.log(error));
   };
 

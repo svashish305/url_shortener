@@ -3,8 +3,8 @@ import { API } from "../api-service";
 import { useCookies } from "react-cookie";
 
 function useFetch() {
-  const [data, setData] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [token] = useCookies(["us-token"]);
@@ -13,19 +13,19 @@ function useFetch() {
     async function fetchData() {
       setLoading(true);
       setError();
-      const data = await API.getUrls(token["us-token"]).catch((err) =>
-        setError(err)
-      );
-      setData(data);
       const loggedInUser = await API.currentLoggedInUser(
         token["us-token"]
       ).catch((err) => setError(err));
       setLoggedInUser(loggedInUser);
+      const data = await API.getUrls(loggedInUser._id, token["us-token"]).catch((err) =>
+        setError(err)
+      );
+      setData(data);
       setLoading(false);
     }
     fetchData();
   }, []);
-  return [data, loggedInUser, loading, error];
+  return [loggedInUser, data, loading, error];
 }
 
 export { useFetch };

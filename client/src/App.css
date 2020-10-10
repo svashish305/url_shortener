@@ -18,6 +18,11 @@
 }
 
 /* misc */
+.login-container {
+  width: 50%;
+  margin: 0 25%;
+}
+
 .pointer-cursor {
   cursor: pointer;
 }
