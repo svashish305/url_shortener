@@ -10,7 +10,7 @@ function Auth() {
   const [token, setToken] = useCookies(["us-token"]);
 
   useEffect(() => {
-    if (token["us-token"]) window.location.href = "/urls";
+    if (token["us-token"]) window.location.href = "/dashboard";
   }, [token]);
 
   const loginClicked = () => {

@@ -18,6 +18,85 @@
 }
 
 /* misc */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.login-container {
+  width: 50%;
+  margin: 0 25%;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 0.8rem;
+}
+
+input[type='checkbox'] {
+  position: relative;
+  bottom: 1.5rem;
+}
+
+button {
+  color: #444;
+  background-color: #f3f3f3;
+  padding: 5px 10px;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+button:disabled {
+  color: #f3f3f3;
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+.orange {
+  color: orange;
+}
+
+.purple {
+  color: purple;
+}
+
+.job-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+}
+
+.job-item svg {
+  font-size: 1.2rem;
+  margin: 16px 5px;
+}
+
+.fa-trash {
+  color: crimson;
+}
+
+h1 {
+  color: orange;
+}
+
+h1 .fa-film {
+  color: white;
+  transform: rotate(30deg);
+}
+
+.fa-sign-out-alt {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
 .login-container {
   width: 50%;
   margin: 0 25%;

@@ -29,6 +29,16 @@ export class API {
     }).then((resp) => resp.json());
   }
 
+  static getDashboard(token) {
+    return fetch(`/api/dashboard/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((resp) => resp.json());
+  }
+
   static shortenUrl(body, token) {
     return fetch(`/api/users/shorten`, {
       method: "POST",
@@ -57,7 +67,6 @@ export class API {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(body),
     }).then((resp) => resp.json());
   }
 }
