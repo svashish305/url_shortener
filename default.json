@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://sv:svurlshortener@cluster0.iexlk.mongodb.net/url-shortener-db?retryWrites=true&w=majority",
+  "connectionString": "mongodb://localhost/url-shortener-db",
+  "secret": "HERE IS THE SECRET FOR MERN URL SHORTENER APP",
+  "baseUrl": "http://localhost:4000"
+}
