@@ -14,8 +14,8 @@ function App() {
   const [editedUrl, setEditedUrl] = useState(null);
   const [token, setToken, deleteToken] = useCookies(["us-token"]);
   const [
-    loggedInUser,
     data,
+    loggedInUser,
     loading,
     error,
   ] = useFetch();
@@ -25,7 +25,10 @@ function App() {
   }, [data]);
 
   useEffect(() => {
-    if (!token["us-token"]) window.location.href = "/";
+    if (!token["us-token"]) {
+      // console.log('from app', token["us-token"]);
+      window.location.href = "/";
+    }
   }, [token]);
 
   const loadUrl = (url) => {

@@ -20,7 +20,7 @@ export class API {
   }
 
   static currentLoggedInUser(token) {
-    return fetch(`/api/users/loggedin`, {
+    return fetch(`/api/users/loggedin/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -4,20 +4,20 @@ import { useCookies } from "react-cookie";
 
 function UrlForm(props) {
   const [longUrl, setLongUrl] = useState("");
-  const [token] = useCookies(["jp-token"]);
+  const [token] = useCookies(["us-token"]);
 
   useEffect(() => {
     setLongUrl(props.url.longUrl);
   }, [props.url]);
 
   const updateClicked = () => {
-    API.updateUrl(props.url._id, { longUrl }, token["jp-token"])
+    API.updateUrl(props.url._id, { longUrl }, token["us-token"])
       .then((resp) => props.updatedUrl(resp))
       .catch((error) => console.log(error));
   };
 
   const createClicked = () => {
-    API.createUrl({ longUrl }, token["jp-token"])
+    API.createUrl({ longUrl }, token["us-token"])
       .then((resp) => props.jobCreated(resp))
       .catch((error) => console.log(error));
   };

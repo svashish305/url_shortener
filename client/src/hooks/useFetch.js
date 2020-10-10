@@ -13,14 +13,14 @@ function useFetch() {
     async function fetchData() {
       setLoading(true);
       setError();
-      const loggedInUser = await API.currentLoggedInUser(
-        token["us-token"]
-      ).catch((err) => setError(err));
-      setLoggedInUser(loggedInUser);
       const data = await API.getUrls(token["us-token"]).catch((err) =>
         setError(err)
       );
       setData(data);
+      const loggedInUser = await API.currentLoggedInUser(
+        token["us-token"]
+      ).catch((err) => setError(err));
+      setLoggedInUser(loggedInUser);
       setLoading(false);
     }
     fetchData();
