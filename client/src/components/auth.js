@@ -7,18 +7,18 @@ function Auth() {
   const [password, setPassword] = useState("");
   const [isLoginView, setIsLoginView] = useState(true);
 
-  const [token, setToken] = useCookies(["us-token"]);
+  const [token, setToken] = useCookies(['us-token']);
 
   useEffect(() => {
-    if (token["us-token"]) {
-      console.log('from auth ', token["us-token"]);
-      // window.location.href = "/urls";
+    if (token['us-token']) {
+      // console.log('from auth ', token['us-token']);
+      window.location.href = "/urls";
     }
   }, [token]);
 
   const loginClicked = () => {
     API.loginUser({ email, password })
-      .then((resp) => setToken("us-token", resp.jwtToken))
+      .then((resp) => setToken('us-token', resp.jwtToken))
       .catch((error) => console.log(error));
   };
 

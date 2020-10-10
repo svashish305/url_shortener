@@ -12,7 +12,7 @@ function App() {
   const [urls, setUrls] = useState([]);
   const [selectedUrl, setSelectedUrl] = useState(null);
   const [editedUrl, setEditedUrl] = useState(null);
-  const [token, setToken, deleteToken] = useCookies(["us-token"]);
+  const [token, setToken, deleteToken] = useCookies(['us-token']);
   const [
     data,
     loggedInUser,
@@ -25,8 +25,8 @@ function App() {
   }, [data]);
 
   useEffect(() => {
-    if (!token["us-token"]) {
-      // console.log('from app', token["us-token"]);
+    if (!token['us-token']) {
+      // console.log('from app', token['us-token']);
       window.location.href = "/";
     }
   }, [token]);
@@ -67,7 +67,7 @@ function App() {
   };
 
   const logoutUser = () => {
-    deleteToken(["us-token"]);
+    deleteToken(['us-token']);
   };
 
   if (loading) return <h1>Loading...</h1>;

@@ -5,7 +5,7 @@ import { API } from "../api-service";
 import { useCookies } from "react-cookie";
 
 function UrlList(props) {
-  const [token] = useCookies(["us-token"]);
+  const [token] = useCookies(['us-token']);
 
   const urlClicked = (url) => (evt) => {
     props.urlClicked(url);
@@ -16,7 +16,7 @@ function UrlList(props) {
   };
 
   const removeClicked = (url) => {
-    API.deleteUrl(url._id, token["us-token"])
+    API.deleteUrl(url._id, token['us-token'])
       .then(() => props.removeClicked(url))
       .catch((error) => console.log(error));
   };
