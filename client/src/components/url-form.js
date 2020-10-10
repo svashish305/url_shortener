@@ -4,21 +4,18 @@ import { useCookies } from "react-cookie";
 
 function UrlForm(props) {
   const [longUrl, setLongUrl] = useState("");
-  const [token] = useCookies(['us-token']);
+  const [token] = useCookies(["us-token"]);
 
   useEffect(() => {
     setLongUrl(props.url.longUrl);
   }, [props.url]);
 
-  const updateClicked = () => {
-    API.updateUrl(props.url._id, { longUrl }, token['us-token'])
-      .then((resp) => props.updatedUrl(resp))
-      .catch((error) => console.log(error));
-  };
-
   const createClicked = () => {
-    API.createUrl({ longUrl }, token['us-token'])
-      .then((resp) => props.jobCreated(resp))
+    API.shortenUrl({ longUrl }, token["us-token"])
+      .then((resp) => {
+        // console.log(resp)
+        props.urlCreated(resp)
+      })
       .catch((error) => console.log(error));
   };
 
@@ -39,15 +36,6 @@ function UrlForm(props) {
             onChange={(evt) => setLongUrl(evt.target.value)}
           />
           <br />
-          {props.url._id ? (
-            <button
-              className="pointer-cursor"
-              onClick={updateClicked}
-              disabled={isDisabled}
-            >
-              Update
-            </button>
-          ) : (
             <button
               className="pointer-cursor"
               onClick={createClicked}
@@ -55,8 +43,7 @@ function UrlForm(props) {
             >
               Create
             </button>
-          )}
-        </div>
+          </div>
       ) : null}
     </React.Fragment>
   );

@@ -50,12 +50,13 @@ function App() {
   };
 
   const newUrl = () => {
-    setEditedUrl({ longUrl: "" });
+    setEditedUrl({ longUrl: "", shortUrl: "" });
     setSelectedUrl(null);
   };
 
   const urlCreated = (url) => {
-    const newUrls = [...urls, url];
+    // const newUrls = [...urls, url];
+    const newUrls = [url];
     setUrls(newUrls);
   };
 
@@ -98,11 +99,11 @@ function App() {
             </button>
           </div>
           <UrlDetails url={selectedUrl} updateUrl={loadUrl} />
-          <UrlForm
+          {editedUrl ? (<UrlForm
             url={editedUrl}
             updatedUrl={updatedUrl}
             urlCreated={urlCreated}
-          />
+          />) : null}
         </div>
       </div>
     </React.Fragment>

@@ -21,6 +21,13 @@ function UrlList(props) {
       .catch((error) => console.log(error));
   };
 
+  const redirect = (shortUrl) => {
+    API.redirectUrl(shortUrl, token['us-token'])
+      .then(res => window.location.href = res)
+      .catch((error) => console.log(error));
+
+  }
+
   return (
     <React.Fragment>
       <div>
@@ -30,7 +37,7 @@ function UrlList(props) {
             return (
               <div key={url && url._id} className="url-item">
                 <h2 className="pointer-cursor" onClick={urlClicked(url)}>
-                  {url && url.company}
+            ShortUrl: <a onClick={() => redirect(url.urlCode)}>Short Url</a>
                 </h2>
                 <div>
                   <FontAwesomeIcon
