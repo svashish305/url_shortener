@@ -204,10 +204,11 @@ async function shorten(id, longUrl) {
           user: id
         });
         await url.save();
-        let user = await db.User.findById(req.user.id);
+        let user = await db.User.findById(id);
         if(!user.urls.includes(url._id)) {
-          user.urls.push(url);
+          user.urls.push(url._id);
         }
+        await user.save();
         return url;
       }
     } catch (err) {
