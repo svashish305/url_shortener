@@ -15,14 +15,12 @@ function useFetch() {
       setError();
       const data = await API.getUrls(token['us-token'])
       .catch((err) => {
-        console.log('err in fetching data ', err);
         setError(err)
       });
       setData(data)
       const loggedInUser = await API.currentLoggedInUser(
         token['us-token']
       ).catch((err) => {
-        console.log('err in fetching loggedin info ', err);
         setError(err)
       });
       setLoggedInUser(loggedInUser);

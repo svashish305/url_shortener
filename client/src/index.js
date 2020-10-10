@@ -13,7 +13,7 @@ function Router() {
       <CookiesProvider>
         <BrowserRouter>
           <Route exact path="/" component={Auth} />
-          <Route exact path="/jobs" component={App} />
+          <Route exact path="/urls" component={App} />
         </BrowserRouter>
       </CookiesProvider>
     </React.StrictMode>

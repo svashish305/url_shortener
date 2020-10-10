@@ -36,7 +36,10 @@ export class API {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-    }).then((resp) => resp.json());
+    }).then((resp) => {
+      // console.log(resp)
+      resp.json()
+    }).catch(err => console.log('error getting urls'));
   }
 
   static shortenUrl(body, token) {

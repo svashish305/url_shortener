@@ -11,7 +11,7 @@ function Auth() {
 
   useEffect(() => {
     if (token['us-token']) 
-      window.location.href = "/urls";
+      window.location.href = "/urls/";
   }, [token]);
 
   const loginClicked = () => {
