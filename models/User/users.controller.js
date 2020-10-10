@@ -12,6 +12,7 @@ router.post("/revoke-token", authorize(), revokeTokenSchema, revokeToken);
 router.post("/register", registerSchema, register);
 router.get("/", authorize(), getAll);
 router.get("/loggedin", authorize(), getLoggedInUser);
+router.get('/urls', authorize(), getUrls);
 router.get('/search/:code', authorize(), search);
 router.get("/:id", authorize(), getById);
 router.post("/", authorize(), createSchema, create);
@@ -190,7 +191,12 @@ function shorten(req, res, next) {
 
 function search(req, res, next) {
   userService.search(req.user.id, req.params.code)
-  .then((url) => 
-    res.json(url.longUrl))
+  .then((url) => res.json(url.longUrl))
+  .catch(next);
+}
+
+function getUrls(req, res, next) {
+  userService.myUrls(req.user.id)
+  .then((urls) => res.json(urls))
   .catch(next);
 }

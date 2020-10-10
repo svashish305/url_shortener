@@ -18,7 +18,8 @@ module.exports = {
   delete: _delete,
   getLoggedInUser,
   shorten,
-  search
+  search,
+  myUrls
 };
 
 async function authenticate({ email, password, ipAddress }) {
@@ -233,3 +234,7 @@ async function search(id, urlCode) {
   }
 }
 
+async function myUrls(id) {
+  const user = await db.User.findById(id);
+  return user.urls;
+}
