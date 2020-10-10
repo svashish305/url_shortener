@@ -25,10 +25,8 @@ function App() {
   }, [data]);
 
   useEffect(() => {
-    if (!token['us-token']) {
-      // console.log('from app', token['us-token']);
+    if (!token['us-token']) 
       window.location.href = "/";
-    }
   }, [token]);
 
   const loadUrl = (url) => {
